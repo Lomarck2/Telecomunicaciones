@@ -1,0 +1,22 @@
+class signal{
+  public PVector pf; //punto en la funcion
+  public PVector ps; //punto en la pantalla
+  float escala;
+  color c;
+  public signal(float escala,color c){
+    this.escala=escala;
+    this.c=c;
+    ps = new PVector(0,0);
+  }  
+  public float interpolar(float x){
+    float y=((width/(maxX-minX))*(x-minX))-(width/2);  
+    return y;
+  }  
+  public void graficar(float T,float desplazamientoY){
+    this.ps.x=this.interpolar(this.pf.x);
+    this.ps.y=sin(TWO_PI*(1/T)*this.pf.x) * this.escala;    
+    stroke(this.c);
+    strokeWeight(3.0f);
+    point(this.ps.x,this.ps.y+desplazamientoY);
+  }
+}
