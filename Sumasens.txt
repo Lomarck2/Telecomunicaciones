@@ -1,0 +1,24 @@
+float minX=-4*PI, maxX=4*PI;
+signal s1, s2, s3;
+void setup(){
+  size(1200,700,P3D);
+  background(#FFFFFF);
+  s1 = new signal(20,color(255,0,0));
+  s1.pf = new PVector(minX,0);
+  s2 = new signal(20,color(0,255,0));
+  s2.pf = new PVector(minX,0);
+}
+void draw(){
+  translate(width/2,height/2);
+  rotateX(PI);
+  stroke(0);
+  strokeWeight(1.0f);
+  line(-width/2,0,width/2,0);
+  line(0,-height/2,0,height/2);  
+  s1.graficar(15,300);
+  s1.pf.x += 0.1;
+  s2.graficar(8,200);
+  s2.pf.x += 0.1;
+}
+
+
